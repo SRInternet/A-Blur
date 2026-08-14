@@ -15,9 +15,7 @@
 
 ## 使用方法
 
-前往 [Release](https://github.com/SRInternet/A-Blur/releases) 页面下载最新发行版，解压 `A-Blur.zip
-` 并运行 `A-Blur.exe`
-
+前往 [Release](https://github.com/SRInternet/A-Blur/releases) 页面找到最新发行版，下载`A-Blur-Setup.exe`
 > 本项目仅适用于Windows 10以及其以上系统版本
 
 ## 使用源代码
