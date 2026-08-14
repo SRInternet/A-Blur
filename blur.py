@@ -86,7 +86,7 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.resize(500, 400)
-        self.setWindowIcon(QIcon(resource_path("blur_ico.ico")))
+        self.setWindowIcon(QIcon(resource_path("blur.ico")))
         self.setWindowTitle("\0")
 
         self.is_acrylic = False

@@ -6,8 +6,10 @@ PySide6-Fluent-Widgets==1.8.7
 PySideSix-Frameless-Window==0.8.2
 BlurWindow==1.2.1
 darkdetect==0.8.0
-pywin32==311
+pywin32
 pywin32-ctypes==0.2.3
 pystray==0.19.0
-Pillow==10.4.0
+Pillow
 six==1.16.0
+keyboard
+pyinstaller==6.22.0

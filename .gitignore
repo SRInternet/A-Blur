@@ -11,3 +11,5 @@ installer.nsi
 nsis-3.09/
 *.bat
 *.log
+*.zip
+*.7z
