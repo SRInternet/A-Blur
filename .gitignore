@@ -13,3 +13,5 @@ nsis-3.09/
 *.log
 *.zip
 *.7z
+dist/
+build/

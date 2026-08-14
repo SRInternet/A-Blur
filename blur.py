@@ -1,5 +1,6 @@
 import sys
 import os
+import ctypes
 from PySide6.QtWidgets import QWidget, QApplication
 from PySide6.QtCore import Qt, QMetaObject, Slot
 from PySide6.QtGui import QCursor, QIcon, QColor
@@ -103,6 +104,43 @@ class MainWindow(QWidget):
 
         self.setContextMenuPolicy(Qt.CustomContextMenu)
         self.customContextMenuRequested.connect(lambda: self.tray_menu.exec(QCursor.pos()))
+
+        self._setup_taskbar_icon()
+
+    def _setup_taskbar_icon(self):
+        try:
+            ico_path = resource_path("blur_ico.ico")
+            if not os.path.exists(ico_path):
+                return
+            instance = win32gui.GetModuleHandle(None)
+            class_name = "A_Blur_TaskbarIcon"
+            wc = win32gui.WNDCLASS()
+            wc.hInstance = instance
+            wc.lpszClassName = class_name
+            wc.lpfnWndProc = lambda hwnd, msg, wparam, lparam: 0
+            try:
+                win32gui.RegisterClass(wc)
+            except Exception:
+                pass
+            owner = win32gui.CreateWindow(
+                class_name, "", win32con.WS_OVERLAPPEDWINDOW,
+                0, 0, 0, 0, 0, 0, instance, None
+            )
+            win32gui.ShowWindow(owner, win32con.SW_HIDE)
+            hicon = win32gui.LoadImage(
+                0, ico_path, win32con.IMAGE_ICON, 0, 0,
+                win32con.LR_LOADFROMFILE | win32con.LR_DEFAULTSIZE
+            )
+            if hicon:
+                win32gui.SendMessage(owner, win32con.WM_SETICON, win32con.ICON_BIG, hicon)
+                win32gui.SendMessage(owner, win32con.WM_SETICON, win32con.ICON_SMALL, hicon)
+            ctypes.windll.user32.SetWindowLongPtrW(
+                ctypes.c_void_p(int(self.winId())),
+                win32con.GWL_HWNDPARENT,
+                ctypes.c_void_p(owner)
+            )
+        except Exception:
+            pass
 
     def init_context_menu(self):
         self.tray_menu = RoundMenu("一块模糊", parent=self)
