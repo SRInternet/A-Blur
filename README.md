@@ -10,13 +10,17 @@
 3. ✨ 自定义或隐藏窗口标题
 4. ✨ 隐藏窗口控制按钮
 5. ✨ 始终置顶在最上层
+6. ✨ 调整玻璃颜色
+7. ✨ 玻璃玩丢了轻松寻找
+8. ✨ 按住`F9`操控玻璃后方内容
 
 ## 使用方法
 
-前往 [Release](https://github.com/SRInternet/A-Blur/releases) 页面下载最新的版本，解压 `A-Blur.zip
-` 并运行 `A-Blur.exe`
+前往 [Release](https://github.com/SRInternet/A-Blur/releases) 页面找到最新发行版，下载`A-Blur-Setup.exe`
 
-> 如果要在 Linux 或 MacOS 中运行，请**使用源代码**
+> [!NOTE]
+> 
+> 本项目仅适用于 Windows 10 以及其以上系统版本。如果要在 Linux 或 MacOS 中运行，请**使用源代码**
 
 ## 使用源代码
 1. 安装所有所需依赖
